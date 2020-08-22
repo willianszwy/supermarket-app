@@ -1,8 +1,16 @@
 import React from 'react';
 import { Redirect, Route } from 'react-router-dom';
-import { IonApp, IonRouterOutlet } from '@ionic/react';
+import {
+  IonApp,
+  IonIcon,
+  IonLabel,
+  IonRouterOutlet,
+  IonTabBar,
+  IonTabButton,
+  IonTabs
+} from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import Home from './pages/Home';
+import { cartOutline, searchOutline } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -23,13 +31,30 @@ import '@ionic/react/css/display.css';
 /* Theme variables */
 import './theme/variables.css';
 
+import Comprar from "./pages/Comprar";
+import Carrinho from "./pages/Carrinho";
+
 const App: React.FC = () => (
+
   <IonApp>
     <IonReactRouter>
-      <IonRouterOutlet>
-        <Route path="/home" component={Home} exact={true} />
-        <Route exact path="/" render={() => <Redirect to="/home" />} />
-      </IonRouterOutlet>
+      <IonTabs>
+        <IonRouterOutlet>
+          <Route path="/comprar" component={Comprar} exact={true} />
+          <Route path="/carrinho" component={Carrinho} exact={true} />
+          <Route path="/" render={() => <Redirect to="/comprar" />} exact={true} />
+        </IonRouterOutlet>
+        <IonTabBar slot="bottom">
+          <IonTabButton tab="comprar" href="/comprar">
+            <IonIcon icon={searchOutline} />
+            <IonLabel>Comprar</IonLabel>
+          </IonTabButton>
+          <IonTabButton tab="carrinho" href="/carrinho">
+            <IonIcon icon={cartOutline} />
+            <IonLabel>Carrinho</IonLabel>
+          </IonTabButton>
+        </IonTabBar>
+      </IonTabs>
     </IonReactRouter>
   </IonApp>
 );
