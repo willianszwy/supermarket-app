@@ -10,7 +10,7 @@ import {
   IonTabs
 } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
-import { cartOutline, searchOutline } from 'ionicons/icons';
+import { cartOutline, barcodeOutline } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
 import '@ionic/react/css/core.css';
@@ -33,30 +33,38 @@ import './theme/variables.css';
 
 import Comprar from "./pages/Comprar";
 import Carrinho from "./pages/Carrinho";
+import Adicionar from "./pages/Adicionar";
+import Cadastrar from "./pages/Cadastrar";
+
+import { AppContextProvider } from './services/State';
 
 const App: React.FC = () => (
+  <AppContextProvider>
+    <IonApp>
+      <IonReactRouter>
 
-  <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route path="/comprar" component={Comprar} exact={true} />
-          <Route path="/carrinho" component={Carrinho} exact={true} />
-          <Route path="/" render={() => <Redirect to="/comprar" />} exact={true} />
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="comprar" href="/comprar">
-            <IonIcon icon={searchOutline} />
-            <IonLabel>Comprar</IonLabel>
-          </IonTabButton>
-          <IonTabButton tab="carrinho" href="/carrinho">
-            <IonIcon icon={cartOutline} />
-            <IonLabel>Carrinho</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
+        <IonTabs>
+          <IonRouterOutlet>
+            <Route path="/adicionar/:id" component={Adicionar} exact={true} />
+            <Route path="/cadastrar/:id" component={Cadastrar} exact={true} />
+            <Route path="/comprar" component={Comprar} exact={true} />
+            <Route path="/carrinho" component={Carrinho} exact={true} />
+            <Route path="/" render={() => <Redirect to="/comprar" />} exact={true} />
+          </IonRouterOutlet>
+          <IonTabBar slot="bottom">
+            <IonTabButton tab="comprar" href="/comprar">
+              <IonIcon icon={barcodeOutline} />
+              <IonLabel>Comprar</IonLabel>
+            </IonTabButton>
+            <IonTabButton tab="carrinho" href="/carrinho">
+              <IonIcon icon={cartOutline} />
+              <IonLabel>Carrinho</IonLabel>
+            </IonTabButton>
+          </IonTabBar>
+        </IonTabs>
+      </IonReactRouter>
+    </IonApp>
+  </AppContextProvider>
 );
 
 export default App;

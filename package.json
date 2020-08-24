@@ -5,6 +5,7 @@
   "dependencies": {
     "@capacitor/android": "^2.4.0",
     "@capacitor/core": "2.4.0",
+    "@hookform/error-message": "0.0.4",
     "@ionic-native/barcode-scanner": "^5.28.0",
     "@ionic-native/core": "^5.28.0",
     "@ionic/react": "^5.0.7",
@@ -22,6 +23,7 @@
     "phonegap-plugin-barcodescanner": "^8.1.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
+    "react-hook-form": "^6.5.0",
     "react-router": "^5.1.2",
     "react-router-dom": "^5.1.2",
     "react-scripts": "^3.4.3",
