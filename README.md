@@ -9,7 +9,8 @@
   </a>
 </p>
 
-> Aplicativo para leitura de código de barras e cadastro de produtos, apresentado como parte do processo seletivo para a bolsa de Pesquisa & Desenvolvimento para o projeto da Universidade do Estado do Amazonas.
+> Aplicativo para leitura de código de barras e cadastro de produtos, apresentado como parte do processo seletivo para a bolsa de Pesquisa & Desenvolvimento para  projeto do departamento de Engenharia da Computação da Universidade do Estado do Amazonas.
+
 
 ## Install
 
